@@ -83,6 +83,12 @@ See [`.env.example`](.env.example). Always-on via launchd: [`com.airlock.gate.pl
 - **Put guarantees in code, not prompts.** "Don't exfiltrate" in a system prompt is a suggestion. A single
   hard-coded egress domain + fail-closed checks is a guarantee.
 
+## Built by
+
+Built by **[KodeKing](https://www.kodeking.net)** · author **[Fazal Shah](https://www.fazalshah.com)**.
+We build local, private, multi-agent AI systems for teams who can't send their data to the cloud.
+Issues and PRs welcome.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
