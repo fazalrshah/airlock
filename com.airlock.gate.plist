@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Always-on Airlock via launchd (macOS). KeepAlive restarts it on crash AND at login/reboot.
+  Install:
+    1) edit the two paths below (your python + the airlock.py location)
+    2) cp com.airlock.gate.plist ~/Library/LaunchAgents/
+    3) launchctl load ~/Library/LaunchAgents/com.airlock.gate.plist
+    4) launchctl list | grep airlock        # shows a PID = running
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.airlock.gate</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/REPLACE/with/your/python3</string>
+    <string>/REPLACE/with/path/to/airlock.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/REPLACE/with/airlock/dir</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>AIRLOCK_EGRESS_DOMAIN</key><string>https://www.google.com</string>
+    <key>CHROME_CDP_URL</key><string>http://localhost:9222</string>
+  </dict>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/tmp/airlock.log</string>
+  <key>StandardErrorPath</key><string>/tmp/airlock.log</string>
+</dict>
+</plist>
